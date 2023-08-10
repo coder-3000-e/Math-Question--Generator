@@ -3,7 +3,7 @@ from pydantic import ValidationError
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from models.responseModel import MathProblemResponse
+from src.models.responseModel import MathProblemResponse
 
 class TestMathProblemResponse(unittest.TestCase):
 

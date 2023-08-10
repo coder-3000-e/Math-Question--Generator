@@ -2,7 +2,7 @@ import unittest
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from helpers.helpers import remove_dollar_sign
+from src.helpers.helpers import remove_dollar_sign
 
 class TestRemoveDollarSign(unittest.TestCase):
 
