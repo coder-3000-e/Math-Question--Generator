@@ -5,18 +5,18 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from main import app
 
-client = TestClient(app)
+@pytest.fixture(scope="module")
+def test_client():
+    return TestClient(app)
 
-@pytest.mark.integration
-def test_basic_algebra_endpoint():
-    response = client.get("/basic_algebra")
+def test_basic_algebra_endpoint(test_client):
+    response = test_client.get("/basic_algebra")
     assert response.status_code == 200
     assert "problem" in response.json()
     assert "solution" in response.json()
 
-@pytest.mark.integration
-def test_addition_endpoint():
-    response = client.get("/addition")
+def test_addition_endpoint(test_client):
+    response = test_client.get("/addition")
     assert response.status_code == 200
     assert "problem" in response.json()
     assert "solution" in response.json()
